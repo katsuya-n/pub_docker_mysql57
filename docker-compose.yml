@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  db:
+    build: mysql
+    container_name: sample_db
+    volumes:
+      - ./mysql/conf.d/my.cnf:/etc/mysql/my.cnf
+    environment:
+      - MYSQL_DATABASE=sample_app
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+      - TZ=Asia/Tokyo
+    ports:
+      - 3306:3306
